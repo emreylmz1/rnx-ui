@@ -1,5 +1,5 @@
 {
-	"extends": "expo/tsconfig.base",
+	"extends": "@tsconfig/react-native/tsconfig.json",
 	"compilerOptions": {
 		"target": "ESNext",
 		"useDefineForClassFields": true,
@@ -7,6 +7,7 @@
 		"allowJs": false,
 		"skipLibCheck": true,
 		"esModuleInterop": false, // true
+		"noImplicitAny": true,
 		"allowSyntheticDefaultImports": true,
 		"strict": true,
 		"forceConsistentCasingInFileNames": true,
@@ -15,10 +16,10 @@
 		"resolveJsonModule": true,
 		"isolatedModules": true,
 		"noEmit": true,
-		"jsx": "react-jsx",
+		"jsx": "react-native",
 		"noFallthroughCasesInSwitch": true,
 		"baseUrl": "src"
 	},
-	"include": ["src", "rn-env.d.ts"],
+	// "include": ["src", "rn-env.d.ts"]
 	"references": [{ "path": "./tsconfig.node.json" }]
 }
