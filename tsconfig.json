@@ -19,7 +19,5 @@
 		"jsx": "react-native",
 		"noFallthroughCasesInSwitch": true,
 		"baseUrl": "src"
-	},
-	// "include": ["src", "rn-env.d.ts"]
-	"references": [{ "path": "./tsconfig.node.json" }]
+	}
 }
