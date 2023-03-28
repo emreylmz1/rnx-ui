@@ -1,16 +1,38 @@
 {
 	"name": "rnx-ui",
 	"version": "1.0.0",
-	"main": "node_modules/expo/AppEntry.js",
+	"source": "node_modules/expo/AppEntry.js",
+	"main": "./dist/index.cjs",
+	"module": "./dist/index.module.js",
+	"types": "./dist/index.d.ts",
+	"exports": {
+		"require": "./dist/index.cjs",
+		"default": "./dist/index.modern.js"
+	},
 	"scripts": {
 		"start": "expo start",
 		"android": "expo start --android",
 		"ios": "expo start --ios",
-		"web": "expo start --web"
+		"web": "expo start --web",
+		"build": "yarn purge:dist && microbundle --no-sourcemap --format modern,cjs",
+		"purge:dist": "rm -rf dist"
+	},
+	"lint-staged": {
+		"src/**/*.{js,ts,tsx}": [
+			"eslint"
+		],
+		"example/**/*.{js,ts,tsx}": [
+			"eslint"
+		],
+		"*.{json,md,html}": [
+			"prettier --write"
+		]
 	},
 	"dependencies": {
 		"expo": "~47.0.12",
 		"expo-status-bar": "~1.4.2",
+		"microbundle": "^0.15.1",
+		"native-base": "^3.4.25",
 		"prettier": "^2.8.4",
 		"react": "18.1.0",
 		"react-dom": "18.1.0",
@@ -24,6 +46,8 @@
 		"@types/react": "^18.0.28",
 		"@types/react-native": "~0.70.6",
 		"@types/react-test-renderer": "^18.0.0",
+		"esbuild": "^0.17.10",
+		"metro-minify-esbuild": "^0.2.0",
 		"typescript": "^4.9.5"
 	},
 	"private": true
