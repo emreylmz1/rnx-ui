@@ -1,7 +1,7 @@
 {
 	"name": "@emreylmz1/rnx-ui",
 	"version": "1.0.0",
-	"source": "node_modules/expo/AppEntry.js",
+	"source": "src/components/index.ts",
 	"main": "./dist/index.cjs",
 	"module": "./dist/index.module.js",
 	"types": "./dist/index.d.ts",
