@@ -1,5 +1,4 @@
 {
-	"extends": "@tsconfig/react-native/tsconfig.json",
 	"compilerOptions": {
 		"target": "ESNext",
 		"useDefineForClassFields": true,
@@ -17,6 +16,8 @@
 		"isolatedModules": true,
 		"noEmit": true,
 		"jsx": "react-native",
-		"noFallthroughCasesInSwitch": true
+		"noFallthroughCasesInSwitch": true,
+		"sourceMap": false,
+		"declaration": true
 	}
 }
