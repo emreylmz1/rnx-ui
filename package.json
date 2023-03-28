@@ -2,9 +2,19 @@
 	"name": "@emreylmz1/rnx-ui",
 	"version": "1.0.0",
 	"source": "src/components/index.ts",
-	"main": "./dist/index.cjs",
-	"module": "./dist/index.module.js",
-	"types": "./dist/index.d.ts",
+	"main": "dist/commonjs/index.js",
+	"module": "dist/module/index.js",
+	"react-native": "src/components/index.ts",
+	"types": "dist/typescript/src/components/index.d.ts",
+	"files": [
+		"src/components",
+		"dist",
+		"!**/__tests__",
+		"!**/__fixtures__",
+		"!**/__mocks__",
+		"lib/",
+		"src/"
+	],
 	"repository": "https://github.com/emreylmz1/rnx-ui",
 	"exports": {
 		"require": "./dist/index.cjs",
@@ -15,8 +25,9 @@
 		"android": "expo start --android",
 		"ios": "expo start --ios",
 		"web": "expo start --web",
-		"build": "yarn purge:dist && microbundle --no-sourcemap --format modern,cjs",
-		"purge:dist": "rm -rf dist"
+		"build": "react-scripts build",
+		"purge:dist": "rm -rf dist",
+		"prepack": "bob build"
 	},
 	"lint-staged": {
 		"src/**/*.{js,ts,tsx}": [
@@ -42,17 +53,48 @@
 	"devDependencies": {
 		"@babel/core": "^7.12.9",
 		"@tsconfig/react-native": "^2.0.3",
-		"@types/jest": "^29.4.0",
-		"@types/react": "^18.0.28",
-		"@types/react-native": "~0.70.6",
 		"@types/react-test-renderer": "^18.0.0",
 		"esbuild": "^0.17.10",
 		"metro-minify-esbuild": "^0.2.0",
 		"microbundle": "^0.15.1",
-		"typescript": "^4.9.5"
+		"@commitlint/config-conventional": "^17.0.2",
+		"@evilmartians/lefthook": "^1.2.2",
+		"@react-native-community/eslint-config": "^3.0.2",
+		"@release-it/conventional-changelog": "^5.0.0",
+		"@types/jest": "^28.1.2",
+		"@types/react": "~17.0.21",
+		"@types/react-native": "0.70.0",
+		"commitlint": "^17.0.2",
+		"del-cli": "^5.0.0",
+		"eslint": "^8.4.1",
+		"eslint-config-prettier": "^8.5.0",
+		"eslint-plugin-prettier": "^4.0.0",
+		"jest": "^28.1.1",
+		"pod-install": "^0.1.0",
+		"prettier": "^2.0.5",
+		"react": "18.2.0",
+		"react-native": "0.71.4",
+		"react-native-builder-bob": "^0.20.4",
+		"release-it": "^15.0.0",
+		"typescript": "^4.5.2"
+	},
+	"peerDependencies": {
+		"react": "*",
+		"react-native": "*"
 	},
 	"publishConfig": {
 		"registry": "https://npm.pkg.github.com"
 	},
-	"private": true
+	"private": true,
+	"react-native-builder-bob": {
+		"source": "src/components",
+		"output": "dist",
+		"targets": [
+			"typescript"
+		]
+	},
+	"eslintIgnore": [
+		"node_modules/",
+		"dist/"
+	]
 }
