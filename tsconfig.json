@@ -18,7 +18,8 @@
 		"jsx": "react-native",
 		"noFallthroughCasesInSwitch": true,
 		"sourceMap": false,
-		"declaration": true
+		"declaration": true,
+		"baseUrl": "src"
 	},
 	"extends": "expo/tsconfig.base"
 }
