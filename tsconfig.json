@@ -6,7 +6,6 @@
 		"allowJs": false,
 		"skipLibCheck": true,
 		"esModuleInterop": false,
-		"noImplicitAny": true,
 		"allowSyntheticDefaultImports": true,
 		"strict": true,
 		"forceConsistentCasingInFileNames": true,
@@ -14,12 +13,19 @@
 		"moduleResolution": "Node",
 		"resolveJsonModule": true,
 		"isolatedModules": true,
-		"noEmit": false,
-		"jsx": "react-native",
-		"noFallthroughCasesInSwitch": true,
+		"noEmit": true,
+		"jsx": "preserve",
+		"outDir": "dist",
 		"sourceMap": false,
 		"declaration": true,
-		"baseUrl": "src"
+		"noImplicitReturns": true,
+		"noImplicitThis": true,
+		"noImplicitAny": true,
+		"strictNullChecks": true,
+		"suppressImplicitAnyIndexErrors": true,
+		"noUnusedLocals": true,
+		"noUnusedParameters": true
 	},
-	"extends": "expo/tsconfig.base"
+	"include": ["src"],
+	"exclude": ["node_modules", "dist"]
 }
